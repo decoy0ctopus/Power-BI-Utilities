@@ -1,0 +1,5 @@
+let
+    Source = Json.Document(Web.Contents(URL, [RelativePath="api/person/personnel", Query=[orgUnitID="xxx"], Headers=[Authorization=API_Key]])),
+    data = Source[data],
+    #"Converted to Table" = Table.FromList(data, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    Source2 = Json.Document(Web.Contents(URL, [RelativePath="qcc/personnel/currencies", Query=[resourceIDs=Text.Combine(Table.Column(#"Expanded Column1", "id"), ",")], Headers=[Authorization=API_Key]])),
