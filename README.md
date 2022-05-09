@@ -1,2 +1,2 @@
 # Power-BI-Utilities
-A collection of utilities for use in PowerBI
+A collection of useful utilities for use in PowerBI
